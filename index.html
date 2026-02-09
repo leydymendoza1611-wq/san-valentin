@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Nuestra Historia</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- FUENTES -->
+<link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Cormorant+Garamond:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  background:#603334;
+  color:#f3eeee;
+  font-family:'Cormorant Garamond',serif;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+/* 🌑 INTRO */
+#intro{
+  position:fixed;
+  inset:0;
+  background:black;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  padding:30px;
+}
+#intro p{
+  font-size:1.6em;
+  max-width:900px;
+  opacity:0;
+  animation:fadeIn 2s forwards;
+}
+#intro p:nth-child(2){animation-delay:1.5s}
+#intro p:nth-child(3){animation-delay:3s}
+#intro button{
+  margin-top:40px;
+  padding:18px 45px;
+  border:none;
+  border-radius:40px;
+  font-size:1.2em;
+  cursor:pointer;
+}
+@keyframes fadeIn{to{opacity:1;}}
+
+/* 💖 SECCIÓN VALENTÍN */
+#valentin{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:40px 20px;
+}
+
+h1,h2{
+  font-family:'Parisienne',cursive;
+}
+
+h1{font-size:3em;margin-bottom:30px}
+p{
+  max-width:820px;
+  margin:25px auto;
+  font-size:1.35em;
+  line-height:1.9;
+}
+
+/* 💞 BOTONES */
+.botones{
+  margin-top:40px;
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.botones button{
+  padding:18px 45px;
+  font-size:1.3em;
+  border:none;
+  border-radius:45px;
+  cursor:pointer;
+  background:#f3eeee;
+  color:#603334;
+  animation:latido 1.5s infinite;
+}
+.botones button.pulsado{
+  transform:scale(0.95);
+  opacity:0.6;
+}
+@keyframes latido{50%{transform:scale(1.08);}}
+
+/* ✨ OVERLAY */
+#overlay{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.65);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  opacity:0;
+  pointer-events:none;
+  transition:opacity 1s ease;
+  z-index:9998;
+}
+#overlay.activo{opacity:1}
+.overlay-texto{
+  font-family:'Parisienne',cursive;
+  font-size:2.6em;
+  color:white;
+}
+
+/* 💗 PARTÍCULAS */
+.particula{
+  position:fixed;
+  top:-50px;
+  animation:caer linear infinite;
+  pointer-events:none;
+  z-index:5;
+}
+@keyframes caer{
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* 📸 GALERÍA */
+.galeria img,
+.galeria video{
+  width:90%;
+  max-width:900px;
+  margin:90px auto;
+  display:block;
+  border-radius:28px;
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+  opacity:0;
+  transform:translateY(50px);
+  transition:1.2s;
+}
+.visible{opacity:1;transform:translateY(0)}
+
+/* 💌 FRASES */
+.frase{
+  font-size:1.6em;
+  margin:70px auto;
+  max-width:850px;
+  opacity:0;
+  transition:1s;
+}
+.frase.visible{opacity:1}
+
+/* 🎥 VIDEO FINAL */
+video.final{
+  margin-top:100px;
+}
+
+/* ✨ FIRMA */
+.firma{
+  margin:100px 0 120px;
+  font-size:1.9em;
+  font-family:'Parisienne',cursive;
+}
+</style>
+</head>
+
+<body>
+
+<!-- INTRO -->
+<div id="intro">
+  <p>No sabía que sentía frío hasta que me enamoré de tu calor y empecé a extrañarlo.</p>
+  <p>De nadie seré, solo de ti, hasta que mis huesos se vuelvan ceniza.</p>
+  <p>En tu risa cabe el mundo y en tu abrazo el tiempo se detiene.</p>
+  <button onclick="entrar()">SIEMPRE TÚ Y YO 💗</button>
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay">
+  <div class="overlay-texto">Sabía que dirías que sí…</div>
+</div>
+
+<!-- MÚSICA -->
+<audio id="musica" loop>
+  <source src="cancion.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 💖 SAN VALENTÍN -->
+<section id="valentin">
+  <h1>💖 ¿Jesús quieres ser mi eterno San Valentín? 💖</h1>
+
+  <p>No sé en qué momento pasó, pero desde que llegaste todo se volvió más suave.</p>
+  <p>Hay personas que llegan para quedarse en el corazón para siempre.</p>
+  <p>Felices 5 meses, mi guapote 💗</p>
+
+  <div class="botones">
+    <button onclick="aceptar()">sipirili amore mio 💗</button>
+    <button onclick="aceptar()">yes or yes 👺</button>
+  </div>
+</section>
+
+<section class="galeria">
+
+  <img src="foto1.jpg">
+  <div class="frase">Aquí empezó algo que quiero solo para siempre.</div>
+
+  <video src="video1.mp4" autoplay muted loop playsinline></video>
+  <div class="frase">Escribiría mil cartas con tu nombre.</div>
+
+  <img src="foto2.jpg">
+  <div class="frase">Si nada nos salva de la muerte, que el amor nos salve de la vida.</div>
+
+  <video src="video2.mp4" autoplay muted loop playsinline></video>
+  <div class="frase">La droga más fuerte es otro ser humano.</div>
+
+  <img src="foto3.jpg">
+  <div class="frase">Prometo amar mejor para nunca hacerte llorar.</div>
+
+  <video src="video3.mp4" autoplay muted loop playsinline></video>
+</section>
+
+<h2>Si algún día dudas… vuelve aquí, conmigo.</h2>
+
+<video class="final" src="video_final.mp4" controls></video>
+
+<div class="firma">
+  Jesús & Leydy <br>
+  09 · 09 · 2025 <br><br>
+  💗 Gracias por estos 150 días de elegirnos 💗
+</div>
+
+<script>
+/* INTRO */
+function entrar(){
+  document.getElementById('intro').style.display='none';
+}
+
+/* ACEPTAR */
+function aceptar(){
+  iniciarMusica();
+  navigator.vibrate && navigator.vibrate([200,100,200]);
+  document.querySelectorAll('.botones button').forEach(b=>b.classList.add('pulsado'));
+  const overlay=document.getElementById('overlay');
+  overlay.classList.add('activo');
+  setTimeout(()=>{
+    overlay.classList.remove('activo');
+    document.getElementById('valentin').scrollIntoView({behavior:'smooth'});
+  },2500);
+}
+
+/* MÚSICA */
+const musica=document.getElementById('musica');
+let iniciada=false;
+function iniciarMusica(){
+  if(!iniciada){
+    musica.volume=0;
+    musica.play();
+    let v=0;
+    const fade=setInterval(()=>{
+      if(v<1){v+=0.04;musica.volume=v;}
+      else clearInterval(fade);
+    },200);
+    iniciada=true;
+  }
+}
+
+/* SCROLL */
+const elementos=document.querySelectorAll('.galeria img, .galeria video, .frase');
+function mostrar(){
+  elementos.forEach(e=>{
+    if(e.getBoundingClientRect().top<window.innerHeight-120){
+      e.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', mostrar);
+mostrar();
+
+/* 💗 CORAZONES */
+const iconos=['💗','🌸','💋'];
+for(let i=0;i<40;i++){
+  const c=document.createElement('div');
+  c.className='particula';
+  c.innerHTML=iconos[Math.floor(Math.random()*iconos.length)];
+  c.style.left=Math.random()*100+'vw';
+  c.style.fontSize=(18+Math.random()*18)+'px';
+  c.style.animationDuration=(6+Math.random()*6)+'s';
+  document.body.appendChild(c);
+}
+</script>
+
+</body>
+</html>
