@@ -18,7 +18,7 @@ body{
   overflow-x:hidden;
 }
 
-/* 🌑 INTRO */
+/* 🌑 INTRO NEGRA */
 #intro{
   position:fixed;
   inset:0;
@@ -28,16 +28,12 @@ body{
   justify-content:center;
   align-items:center;
   z-index:9999;
-  padding:30px;
 }
 #intro p{
-  font-size:1.6em;
-  max-width:900px;
+  font-size:2em;
   opacity:0;
   animation:fadeIn 2s forwards;
 }
-#intro p:nth-child(2){animation-delay:1.5s}
-#intro p:nth-child(3){animation-delay:3s}
 #intro button{
   margin-top:40px;
   padding:18px 45px;
@@ -48,7 +44,7 @@ body{
 }
 @keyframes fadeIn{to{opacity:1;}}
 
-/* 💖 SECCIÓN VALENTÍN */
+/* 💖 SECCIÓN SAN VALENTÍN */
 #valentin{
   min-height:100vh;
   display:flex;
@@ -61,7 +57,11 @@ h1,h2{
   font-family:'Parisienne',cursive;
 }
 
-h1{font-size:3em;margin-bottom:30px}
+h1{
+  font-size:3.2em;
+  margin-bottom:30px;
+}
+
 p{
   max-width:820px;
   margin:25px auto;
@@ -91,9 +91,11 @@ p{
   transform:scale(0.95);
   opacity:0.6;
 }
-@keyframes latido{50%{transform:scale(1.08);}}
+@keyframes latido{
+  50%{transform:scale(1.08);}
+}
 
-/* ✨ OVERLAY */
+/* ✨ OVERLAY EMOCIONAL */
 #overlay{
   position:fixed;
   inset:0;
@@ -106,58 +108,82 @@ p{
   transition:opacity 1s ease;
   z-index:9998;
 }
-#overlay.activo{opacity:1}
+#overlay.activo{
+  opacity:1;
+}
 .overlay-texto{
   font-family:'Parisienne',cursive;
   font-size:2.6em;
   color:white;
+  animation:aparecerTexto 2s ease forwards;
+}
+@keyframes aparecerTexto{
+  from{opacity:0;transform:scale(0.9);}
+  to{opacity:1;transform:scale(1);}
 }
 
-/* 💗 PARTÍCULAS */
+/* 💗 CORAZONES Y BESOS */
 .particula{
   position:fixed;
   top:-50px;
+  font-size:22px;
   animation:caer linear infinite;
   pointer-events:none;
   z-index:5;
+  opacity:.85;
 }
 @keyframes caer{
   to{transform:translateY(110vh) rotate(360deg);}
 }
 
 /* 📸 GALERÍA */
-.galeria img,
-.galeria video{
-  width:90%;
+.galeria img{
+  width:100%;
   max-width:900px;
   margin:90px auto;
   display:block;
   border-radius:28px;
-  box-shadow:0 25px 60px rgba(0,0,0,.45);
+  box-shadow:0 25px 60px rgba(0,0,0,.4);
   opacity:0;
   transform:translateY(50px);
   transition:1.2s;
 }
-.visible{opacity:1;transform:translateY(0)}
+.galeria img.visible{opacity:1;transform:translateY(0);}
+
+/* 🎞️ VIDEOS CORTOS */
+.galeria video{
+  width:90%;
+  max-width:720px;
+  border-radius:25px;
+  margin:90px auto;
+  display:block;
+  box-shadow:0 25px 60px rgba(0,0,0,.45);
+  opacity:0;
+  transform:translateY(40px);
+  transition:1.2s;
+}
+.galeria video.visible{opacity:1;transform:translateY(0);}
 
 /* 💌 FRASES */
 .frase{
   font-size:1.6em;
   margin:70px auto;
-  max-width:850px;
   opacity:0;
   transition:1s;
 }
-.frase.visible{opacity:1}
+.frase.visible{opacity:1;}
 
 /* 🎥 VIDEO FINAL */
 video.final{
-  margin-top:100px;
+  width:90%;
+  max-width:850px;
+  border-radius:30px;
+  margin:110px auto 40px;
 }
 
 /* ✨ FIRMA */
 .firma{
-  margin:100px 0 120px;
+  margin:90px 0 120px;
   font-size:1.9em;
   font-family:'Parisienne',cursive;
 }
@@ -168,10 +194,10 @@ video.final{
 
 <!-- INTRO -->
 <div id="intro">
-  <p>No sabía que sentía frío hasta que me enamoré de tu calor y empecé a extrañarlo.</p>
-  <p>De nadie seré, solo de ti, hasta que mis huesos se vuelvan ceniza.</p>
-  <p>En tu risa cabe el mundo y en tu abrazo el tiempo se detiene.</p>
-  <button onclick="entrar()">SIEMPRE TÚ Y YO 💗</button>
+  <p>No sabia que sentia frio hasta que me enamore de tu calor y empece a extrañarlo.</p>
+  <p>De nadie sere, solo de ti hasta que mis huesos se vuelvan ceniza y mi corazon deje de latir.</p>
+  <p>Contigo hablo de cosas que antes solo hablaba conmigo, por eso y mucho mas te amo, y como no amarte, si en tu risa cabe el mundo y en tu abrazo el tiempo se detiene.</p>
+  <button onclick="entrar()">SIEMPRE TU Y YO PINKY PROMISE 💗</button>
 </div>
 
 <!-- OVERLAY -->
@@ -186,14 +212,26 @@ video.final{
 
 <!-- 💖 SAN VALENTÍN -->
 <section id="valentin">
-  <h1>💖 ¿Jesús quieres ser mi eterno San Valentín? 💖</h1>
+  <h1>💖 ¿Jesus quieres ser mi eterno San Valentín? 💖</h1>
 
-  <p>No sé en qué momento pasó, pero desde que llegaste todo se volvió más suave.</p>
-  <p>Hay personas que llegan para quedarse en el corazón para siempre.</p>
-  <p>Felices 5 meses, mi guapote 💗</p>
+  <p>
+  No sé en qué momento pasó, pero desde que llegaste a mi vida,
+  todo comenzó a sentirse distinto. Más suave. Más bonito.
+  Como si el mundo hubiera aprendido a sonreír conmigo.
+  </p>
+
+  <p>
+  Cada día a tu lado es un recordatorio de que el amor existe,
+  de que vale la pena creer, de que hay personas que llegan
+  para quedarse en el corazón para siempre.
+  </p>
+
+  <p>
+  Hay partes de mi que solo existen contigo, FELICES 5 MESES MI GUAPOTE 💗
+  </p>
 
   <div class="botones">
-    <button onclick="aceptar()">sipirili amore mio 💗</button>
+    <button onclick="aceptar()">sipirili amore mio💗</button>
     <button onclick="aceptar()">yes or yes 👺</button>
   </div>
 </section>
@@ -201,31 +239,64 @@ video.final{
 <section class="galeria">
 
   <img src="foto1.jpg">
-  <div class="frase">Aquí empezó algo que quiero solo para siempre.</div>
+  <div class="frase">Aquí empezó algo que no sabía que necesitaba, pero me muero por tenerlo eternamente, solo para mi.</div>
 
-  <video src="video1.mp4" autoplay muted loop playsinline></video>
-  <div class="frase">Escribiría mil cartas con tu nombre.</div>
+  <video src="video1.mp4" autoplay loop muted playsinline></video>
+  <div class="frase">No se expresar mis sentimientos , pero escribiria 1000 cartas que lleven tu nombre.</div>
 
   <img src="foto2.jpg">
-  <div class="frase">Si nada nos salva de la muerte, que el amor nos salve de la vida.</div>
+  <div class="frase">Si nada nos salva de la muerte al menos que el amor nos salve de la vida.</div>
 
-  <video src="video2.mp4" autoplay muted loop playsinline></video>
-  <div class="frase">La droga más fuerte es otro ser humano.</div>
+  <video src="video2.mp4" autoplay loop muted playsinline></video>
+  <div class="frase">Ahora se que la droga mas fuerte de un ser humano es otro ser humano.</div>
 
   <img src="foto3.jpg">
-  <div class="frase">Prometo amar mejor para nunca hacerte llorar.</div>
+  <div class="frase">Te pido  que no hagas llorar a los ojos que solo quieren verte feliz, de igual forma prometo mejorar mi tonta forma de amar para que nunca te duela </div>
 
-  <video src="video3.mp4" autoplay muted loop playsinline></video>
+  <video src="video3.mp4" autoplay loop muted playsinline></video>
+
 </section>
 
-<h2>Si algún día dudas… vuelve aquí, conmigo.</h2>
+<h2>Y si algún día dudas de mi amor, o no sabes a donde ir, con quien hablar, cuando la vida te duela y cuando no… vuelve aquí, conmigo, porque siempre estare para ti mi amor bonito</h2>
 
-<video class="final" src="video_final.mp4" controls></video>
+<video class="final" controls>
+  <source src="video_final.mp4" type="video/mp4">
+</video>
 
 <div class="firma">
-  Jesús & Leydy <br>
-  09 · 09 · 2025 <br><br>
-  💗 Gracias por estos 150 días de elegirnos 💗
+  Jesus & Leydy <br>
+  09 · 09 · 2025 <br>
+
+<p>
+Te elijo con los ojos abiertos, sabiendo que amar no siempre es fácil.</p>
+
+<p>
+Te elijo en tus luces y en tus sombras,
+en tus días de calma y en tus días de caos.</p>
+
+<p>
+Te elijo no porque te necesite, sino porque contigo la vida se siente más bonita.
+No busco perfección, busco presencia.</p>
+
+
+<p>
+Te escojo en lo simple, en el café compartido,
+en las risas sin motivo, en los silencios que no incomodan.</p>
+
+
+<p>
+Te escojo incluso cuando dudo, incluso cuando la vida se complica,
+porque el amor real no se trata de sentir siempre lo mismo...</p>
+
+
+<p>
+Sino de elegir quedarse, incluso cuando cuesta.
+Y si la vida me diera mil opciones, igual te escogería a ti, una y otra vez, con todo lo que eso implica. <br>
+
+<p>
+💗 Gracias por estos 150 días de elegirnos. Felices 5 meses mi niño hermoso 💗</p>
+
+
 </div>
 
 <script>
@@ -238,12 +309,17 @@ function entrar(){
 function aceptar(){
   iniciarMusica();
   navigator.vibrate && navigator.vibrate([200,100,200]);
-  document.querySelectorAll('.botones button').forEach(b=>b.classList.add('pulsado'));
+
+  document.querySelectorAll('.botones button')
+    .forEach(b=>b.classList.add('pulsado'));
+
   const overlay=document.getElementById('overlay');
   overlay.classList.add('activo');
+
   setTimeout(()=>{
     overlay.classList.remove('activo');
-    document.getElementById('valentin').scrollIntoView({behavior:'smooth'});
+    document.getElementById('valentin')
+      .scrollIntoView({behavior:'smooth'});
   },2500);
 }
 
@@ -256,7 +332,7 @@ function iniciarMusica(){
     musica.play();
     let v=0;
     const fade=setInterval(()=>{
-      if(v<1){v+=0.04;musica.volume=v;}
+      if(v<1){v+=0.03;musica.volume=v;}
       else clearInterval(fade);
     },200);
     iniciada=true;
@@ -275,15 +351,15 @@ function mostrar(){
 window.addEventListener('scroll', mostrar);
 mostrar();
 
-/* 💗 CORAZONES */
-const iconos=['💗','🌸','💋'];
+/* 💗 CORAZONES Y BESOS */
+const iconos=['💗','🌸'];
 for(let i=0;i<40;i++){
   const c=document.createElement('div');
   c.className='particula';
   c.innerHTML=iconos[Math.floor(Math.random()*iconos.length)];
   c.style.left=Math.random()*100+'vw';
-  c.style.fontSize=(18+Math.random()*18)+'px';
   c.style.animationDuration=(6+Math.random()*6)+'s';
+  c.style.fontSize=(18+Math.random()*18)+'px';
   document.body.appendChild(c);
 }
 </script>
